@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     outputs:
-      matrix: ${{ steps.get_file_changes_echo.outputs.matrix }}
+      matrix: ${{ steps.get_file_changes_echo.outputs.files }}
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
