@@ -30,7 +30,7 @@ jobs:
     - name: Echo file changes
       id: get_file_changes_echo
       run: |
-        echo "::set-output name=matrix::{\"test\":\"${{steps.get_file_changes.outputs.files}}\"}"
+        echo "::set-output name=files::\"${{steps.get_file_changes.outputs.files}}\""
 
   # This workflow contains a single job called "build"
   build2:
@@ -56,4 +56,8 @@ jobs:
       id: get_file_changes_echo
       run: |
         echo ${{ needs.build1.outputs.matrix }}
-  
+
+    - name: "Terraform Init"
+      if: ${{ contains(needs.build1.outputs.matrix, '.github/workflows/') }}
+      run: |
+        echo OK...
