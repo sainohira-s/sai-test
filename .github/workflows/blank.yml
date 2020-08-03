@@ -30,7 +30,7 @@ jobs:
     - name: Echo file changes
       id: get_file_changes_echo
       run: |
-        echo "::set-output name=matrix::{\"test\": ${{steps.get_file_changes.outputs.files}}}"
+        echo "::set-output name=matrix::\"${{steps.get_file_changes.outputs.files}}\""
 
   # This workflow contains a single job called "build"
   build2:
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build1
     strategy:
-      matrix: ${{ fromJson(needs.build1.outputs.matrix) }}
+      matrix: ${{ needs.build1.outputs.matrix }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
