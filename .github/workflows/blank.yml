@@ -30,7 +30,7 @@ jobs:
     - name: Echo file changes
       id: get_file_changes_echo
       run: |
-        echo "::set-output name=matrix::{\"test\":\"${{steps.get_file_changes.outputs.files}}\"}"
+        echo "::set-output name=matrix::{\"test\":${{steps.get_file_changes.outputs.files}}}"
 
   # This workflow contains a single job called "build"
   build2:
