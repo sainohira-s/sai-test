@@ -20,7 +20,7 @@ jobs:
     - name: Run a one-line script
       env: 
         TEST: KOKOKOKO
-      run: echo Hello, world! $TEST
+      run: echo Hello, world! "${TEST}"
 
     - name: Run a multi-line script
       run: |
