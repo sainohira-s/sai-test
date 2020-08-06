@@ -9,6 +9,8 @@ on:
     branches: [ master, dev ]
   pull_request:
     branches: [ master ]
+env: 
+  TEST: KOKOKOKO2
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,8 +20,6 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Run a one-line script
-      env: 
-        TEST: KOKOKOKO
       run: echo Hello, world! \'${TEST}\'
 
     - name: Run a multi-line script
