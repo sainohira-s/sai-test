@@ -7,9 +7,6 @@ name: CI
 on:
   push:
     branches: [ master, dev ]
-    paths:
-      - 'terraform/**/**.tf'
-      - 'terraform/**/**.json'
   pull_request:
     branches: [ master ]
 
